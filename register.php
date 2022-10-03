@@ -43,7 +43,7 @@ if(isset($_POST["register"])) {
     <div class="text">
         <p>START FOR FREE</></p>
         <h1><span class="heading">Create New Account</span><span class="circle">.</span></h1>
-        <p>Already A Member?<span class="blue">Log In</span></p>
+        <p>Already A Member? <a href="login.php"><span class="blue"> Log In</span></a></p>
     </div>
 
     <!-- FORM -->
@@ -71,6 +71,10 @@ if(isset($_POST["register"])) {
             </form>
         </div>
 
+
+        <div class="image">
+            <img src="img/cashier.png" alt="">
+        </div>
 
         <script>
             var icon = document.getElementById("icon");
