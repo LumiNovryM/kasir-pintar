@@ -88,6 +88,21 @@ if(isset($_POST['SimpanEdit'])){
     }
 };
 
+if(isset($_POST['SimpanEditPelanggan'])){
+    $idpelanggan1 = $_POST['idpelanggan'];
+    $namapelanggan1 = $_POST['Edit_Nama_Pelanggan'];
+    $telepon1 = $_POST['Edit_Telepon_Pelanggan'];
+    $alamat1 = $_POST['Edit_Alamat_Pelanggan'];
+
+    $sql = mysqli_query($connect,"UPDATE pelanggan2 SET namapelanggan='$namapelanggan1', notelp='$telepon1', alamat='$alamat1' WHERE idpelanggan=$idpelanggan1");
+    
+    if($sql){
+        header('Location: pelanggan.php');
+    }else{
+        echo '<script>alert("Gagal Edit Data");history.go(-1);</script>';
+    }
+};
+
 
 
 if(!empty($_GET['hapus'])){
@@ -103,7 +118,7 @@ if(!empty($_GET['hapus'])){
 if(isset($_POST['tambahpelanggan'])){
     $namapelanggan = $_POST  ['namapelanggan'];
     $notelp = $_POST  ['notelp'];
-    $alamat = $_POST  ['alamata'];
+    $alamat = $_POST  ['alamat'];
 
     $insert = mysqli_query($connect,"INSERT INTO pelanggan2 (namapelanggan, notelp, alamat) VALUES ('$namapelanggan', '$notelp', '$alamat')");
 

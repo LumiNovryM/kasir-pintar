@@ -156,7 +156,7 @@
             Pilih Pelanggan
                 <select name="idpelanggan" class="form-control">
                     <?php
-                    $getpelanggan = mysqli_query($connect,"select * from pelanggan");
+                    $getpelanggan = mysqli_query($connect,"select * from pelanggan2");
                     
                     while($pl=mysqli_fetch_array($getpelanggan)){
                         $namapelanggan = $pl['namapelanggan'];
