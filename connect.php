@@ -130,4 +130,18 @@ if(isset($_POST['tambahpelanggan'])){
     }
 
 }
+
+if(isset($_POST['addproduk'])){
+    $idproduk = $_POST ['idproduk'];
+    
+    $insert = mysqli_query($connect,"INSERT INTO detailpesanan (idpesanan,idproduk,qty) VALUES ('$idpesanan','$idproduk','$qty')");
+    
+    if($insert){
+        header('location:view.php?idpesanan='.$idpesanan);
+    }else{
+    echo '<script>alert("Gagal Menambahkan pesanan Baru");
+    windown.location.href=view.php"";
+    </script>';
+    }
+}
 ?>

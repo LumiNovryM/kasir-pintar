@@ -1,5 +1,11 @@
 <?php
     include 'connect.php';
+
+    if(isset($_GET['idpelanggan'])){
+        $idpelanggan = $_GET['idpelanggan'];
+    }else{
+        header('location: order.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,24 +76,13 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Transaksi</h1>
+                        <h1 class="mt-4">Data Transaksi: <?=$idpelanggan;?></h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard/Transaksi</li>
+                            <li class="breadcrumb-item active">Selamat Datang</li>
                         </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         
                         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#myModal">
-                        Tambah Pesanan Baru
+                        Tambah Barang
                         </button>
 
                         <div class="card mb-4">
@@ -99,29 +94,31 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>ID Pelanggan</th>
-                                            <th>Tanggal</th>
-                                            <th>Nama Pelanggan</th>
+                                            <th>No</th>
+                                            <th>Harga Satuan</th>
                                             <th>Jumlah</th>
+                                            <th>Sub-Total</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $get = mysqli_query($connect,"select * from pesanan p, pelanggan2 pl where p.idpelanggan=pl.idpelanggan");
+                                    $get = mysqli_query($connect,"select * from pesanan p, produk pr where p.idproduk=pr.idproduk");
+                                    $i = 1;
 
                                     while($p=mysqli_fetch_array($get)){
-                                    $idorder = $p['idorder'];
-                                    $tanggal = $p['tanggal'];
-                                    $namapelanggan = $p['namapelanggan'];
-                                    $alamat = $p['alamat'];
+                                    $qty = $p['$qty'];
+                                    $harga = $p['harga'];
+                                    $namaproduk = $p['namaproduk'];
+                                    $subtotal = $qty*$harga;
                                     ?>
                                         <tr>
-                                            <td><?=$idorder;?></td>
-                                            <td><?=$tanggal;?></td>
-                                            <td><?=$namapelanggan;?> - <?=$alamat;?></td>
-                                            <td>Jumlah</td>
-                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a> Delete</td>
+                                            <td><?=$i++;?></td>
+                                            <td><?=$harga;?></td>
+                                            <td><?=$namaproduk;?> - <?=$alamat;?></td>
+                                            <td><?=$qty;?></td>
+                                            <td><?=$subtotal;?></td>
+                                            <td>Tampilkan Delete</td>
                                         </tr>
 
                                     <?php
@@ -149,7 +146,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Pesanan Baru</h4>
+                <h4 class="modal-title">Tambah Barang</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -157,28 +154,32 @@
             <form method="post">
             <!-- Modal body -->
             <div class="modal-body">
-            Pilih Pelanggan
+            Pilih Barang
                 <select name="idpelanggan" class="form-control">
                     <?php
-                    $getpelanggan = mysqli_query($connect,"select * from pelanggan2");
+                    $getproduk = mysqli_query($connect,"select * from produk");
                     
-                    while($pl=mysqli_fetch_array($getpelanggan)){
-                        $namapelanggan = $pl['namapelanggan'];
-                        $idpelanggan = $pl['idpelanggan'];
-                        $alamat = $pl['alamat']                    
+                    while($pl=mysqli_fetch_array($getproduk)){
+                        $nama_produk = $pl['nama_produk'];
+                        $stock = $pl['$stock'];
+                        $harga_jual = $pl['harga_jual'];                
+                        $id_produk = $pl['id_produk'];                   
                     ?>
 
-                    <option value="<?=$idpelanggan;?>"><?=$namapelanggan;?> - <?=$alamat;?></option>
+                    <option value="<?=$id_produk;?>"><?=$nama_produk;?> - <?=$stock;?></option>
 
                     <?php
                     }
                     ?>
                 </select>
+
+                <input type="number" name="qty" class="from-control mt-4" placeholder="Jumlah">
+                <input type="hidden" name="idpesanan" value="<?=$idpesanan;?>">
             </div>
             
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" name="tambahpesanan">Submit</button>
+                <button type="submit" class="btn btn-success" name="addproduk">Submit</button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
             </form>
