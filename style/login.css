@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,100&display=swap');
+
+:root{
+    /*=== Light Mode ===*/
+    --background-color: #ffffff;
+    --heading: #080808;
+    --button: #1D90F4;
+    --text-color: #A5ABB7;
+    --font: 'Poppins', sans-serif;
+    --heading-weight: 600;
+    --text-weight: 100;
+    --input-color: #EAEAEA;
+    --input-text: #323645;
+}
+
+.dark-theme{
+    /*=== Dark Mode ===*/
+    --background-color: #282a37;
+    --heading: #FFFFFF;
+    --button: #1D90F4;
+    --text-color: #A5ABB7;
+    --font: 'Poppins', sans-serif;
+    --heading-weight: 600;
+    --text-weight: 100;
+    --input-color: #323645;
+    --input-text: #EAEAEA;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+    transition: all .5s ease;
+    text-decoration: none;
+}
+
+
+
+/* HEADER */
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+header nav{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo h1{
+    color: var(--heading);
+}
+
+.circle-logo{
+    width: 23px;
+    height: 23px;
+    background-color: #1D90F4;
+    border-radius: 100%;
+}
+
+.logo .blue{
+    color: #1D90F4;
+    font-size: 28px;
+}
+
+#icon{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+/* TEXT */
+
+.text{
+    margin-left: 115px;
+    margin-top: 100px;
+}
+
+.text p{
+    color: #A5ABB7;
+}
+
+.text h1 .text-login{
+    color: var(--heading);
+}
+
+.text h1 .titik{
+    color: #1D90F4;
+}
+
+.text .biru{
+    color: #1D90F4;
+}
+
+
+/* FORM */
+
+.form{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.name{
+    display: flex;
+}
+
+.name .input {
+    position: relative;
+    display: flex;
+    justify-content:space-around;
+    height: 70px;
+    width: 320px;
+    align-items: center;
+}
+
+.input input{
+    border: none;
+    background-color: var(--input-color);
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    color: var(--input-text);
+    padding: 15px;
+    outline: #1D90F4;
+}
+
+.input label{
+    position: absolute;
+    font-size: 12px;
+    color: var(--text-color);
+    top: 0px;
+    left: 25px;
+}
+
+.email{
+    width: 780px;
+    height: 70px;
+    margin-top: 20px;
+    padding-left: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+form .email label{
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+form .email input{
+    border: none;
+    background-color: var(--input-color);
+    width: 620px;
+    height: 45px;
+    border-radius: 10px;
+    color: var(--input-text);
+    padding: 15px;
+    outline: #1D90F4;
+}
+
+.password{
+    width: 780px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 10px;
+    position: relative;
+}
+
+form .password label{
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+form .password input{
+    border: none;
+    background-color: var(--input-color);
+    width: 620px;
+    height: 45px;
+    border-radius: 10px;
+    color: var(--input-text);
+    padding: 15px;
+    outline: none;
+}
+
+form button{
+    border: none;
+    background-color: #1D90F4;
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+    width: 200px;
+}
+
+.image{
+    position: absolute;
+    top: 50px;
+    right: 30px;
+}
+
+.image img{
+    width: 600px;
+    height: 600px;
+}
