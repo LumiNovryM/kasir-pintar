@@ -65,6 +65,7 @@ if(isset($_POST['tambah-produk'])){
     }else{
         echo '<script>alert("Gagal Menambahkan Data");history.go(-1);</script>';
     }
+
 }
 
 
