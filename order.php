@@ -55,6 +55,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Transaksi
                             </a>
+                            <a class="nav-link" href="pelanggan.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Kelola Pelanggan
+                            </a>
                             <a class="nav-link" href="masuk.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Produk
@@ -81,6 +85,11 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#myModal">
+                        Tambah Pesanan Baru
+                        </button>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -90,23 +99,30 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID Pelanggan</th>
+                                            <th>Tanggal</th>
+                                            <th>Jumlah</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                    $get = mysqli_query($connect,"select * from pesanan");
+
+                                    while($p=mysqli_fetch_array($get)){
+                                    $idorder = $p['idorder'];
+                                    $tanggal = $p['tanggal'];
+                                    ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td><?=$idorder;?></td>
+                                            <td><?=$tanggal;?></td>
+                                            <td>Jumlah</td>
+                                            <td>Tampilkan Delete</td>
                                         </tr>
+
+                                    <?php
+                                    };
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -123,4 +139,46 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+
+            <form method="post">
+            <!-- Modal body -->
+            <div class="modal-body">
+            Pilih Pelanggan
+                <select name="idpelanggan" class="form-control">
+                    <?php
+                    $getpelanggan = mysqli_query($connect,"select * from pelanggan");
+                    
+                    while($pl=mysqli_fetch_array($getpelanggan)){
+                        $namapelanggan = $pl['namapelanggan'];
+                        $idpelanggan = $pl['idpelanggan'];
+                        $alamat = $pl['alam$alamat']                    
+                    ?>
+
+                    <option value="<?=$idpelanggan;?>"><?=$namapelanggan;?> - <?=$alamat;?></option>
+
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" name="tambahpesanan">Submit</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 </html>

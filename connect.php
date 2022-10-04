@@ -99,4 +99,20 @@ if(!empty($_GET['hapus'])){
         echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
     }
 }
+
+if(isset($_POST['tambahpelanggan'])){
+    $namapelanggan = $_POST  ['namapelanggan'];
+    $notelp = $_POST  ['notelp'];
+    $alamat = $_POST  ['alamata'];
+
+    $insert = mysqli_query($connect,"INSERT INTO pelanggan2 (namapelanggan, notelp, alamat) VALUES ('$namapelanggan', '$notelp', '$alamat')");
+
+    if($insert){
+        header('location:pelanggan.php');
+    }else{
+        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+        history.go(-1);</script>';
+    }
+
+}
 ?>
