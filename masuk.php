@@ -104,7 +104,7 @@
                                 </thead>
 
                                 <?php
-                                $get = mysqli_query($conn, "SELECT * FROM produk");
+                                $get = mysqli_query($connect, "SELECT * FROM produk");
                                 $i = 1;
 
                                 while($p=mysqli_fetch_array($get)){

@@ -26,7 +26,7 @@
         <p>Don't have account? <a href="register.php"><span class="biru"> Register </span></a></p>
     </div>
         <div class="form">
-            <form action="" method="POST">
+            <form action="dashboard.php" method="POST">
                     <div class="email">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" required>

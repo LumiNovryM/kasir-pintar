@@ -1,3 +1,12 @@
+<?php
+
+include 'connect.php';
+
+// Get data dari produk
+$get_data_produk = mysqli_query($connect,"SELECT * FROM produk");
+$count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh kolom
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +23,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">Kasir Pintar</a>
+            <a class="navbar-brand ps-3" href="dashboard.php">Kasir Pintar</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -63,17 +72,10 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                                    <div class="card-body" style="text-align: center;">Total Data Produk <br><p style="font-weight: bold;font-size: 32px;text-align: center;"><?= $count_data_produk ?></p></div>
                                 </div>
                             </div>
                         </div>
