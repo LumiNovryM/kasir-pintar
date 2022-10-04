@@ -65,7 +65,6 @@ if(isset($_POST['tambah-produk'])){
     }else{
         echo '<script>alert("Gagal Menambahkan Data");history.go(-1);</script>';
     }
-<<<<<<< HEAD
 }
 
 
@@ -99,12 +98,4 @@ if(!empty($_GET['hapus'])){
         echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
     }
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}    
->>>>>>> 62d2722e5c6f1472406cc7db8075fa51222702a7
->>>>>>> ef23769acac533d3c3f646dac55500da2a825a13
-
 ?>
