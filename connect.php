@@ -28,7 +28,7 @@
     if( mysqli_fetch_assoc($result) ) {
         echo "<script>
                 alert('First Name & Last Name Already Exist')
-              </script>";
+            </script>";
         return false;
     }
 
@@ -68,4 +68,35 @@ if(isset($_POST['tambah-produk'])){
 
 }
 
+
+
+
+if(isset($_POST['SimpanEdit'])){
+    $idproduk1 = $_POST['id_produk'];
+    $kodeproduk1 = $_POST['Edit_Kode_Produk'];
+    $namaproduk1 = $_POST['Edit_Nama_Produk'];
+    $stock1 = $_POST['Edit_Stock_Produk'];
+    $harga_modal1 = $_POST['Edit_Harga_Modal'];
+    $harga_jual1 = $_POST['Edit_Harga_Jual'];
+
+    $sql = mysqli_query($connect,"UPDATE produk SET kode_produk='$kodeproduk1', nama_produk='$namaproduk1', stock='$stock1', harga_modal='$harga_modal1', harga_jual='$harga_jual1' WHERE id_produk=$idproduk1");
+    
+    if($sql){
+        header('Location: masuk.php');
+    }else{
+        echo '<script>alert("Gagal Edit Data");history.go(-1);</script>';
+    }
+};
+
+
+
+if(!empty($_GET['hapus'])){
+    $idproduk1 = $_GET['hapus'];
+    $hapus_data = mysqli_query($connect, "DELETE FROM produk WHERE id_produk='$idproduk1'");
+    if($hapus_data){
+        header('Location: masuk.php');
+    }else{
+        echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
+    }
+}
 ?>

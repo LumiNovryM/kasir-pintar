@@ -120,8 +120,50 @@
                                         <td><?=$p['harga_jual'];?></td>
                                         <td><?=$p['stock'];?></td>
                                         <td><?=$p['tgl_input'];?></td>
-                                        <td>Edit Delete</td>
+                                        <td><button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditProduk<?php echo $p['id_produk']; ?>">
+                                                <i class="fas fa-pencil-alt fa-xs mr-1"></i>Edit
+                                            </button>
+                                            <a class="btn btn-danger btn-xs" href="?hapus=<?php echo $p['id_produk']; ?>">
+                                            <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
+                                        </td>
                                     </tr>
+
+
+
+                                    <div class="modal fade" id="EditProduk<?php echo $p['id_produk']; ?>" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content border-0">
+                                                <form method="post">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label class="samll">Kode Produk :</label>
+                                                            <input type="hidden" name="id_produk" value="<?php echo $p['id_produk']; ?>">
+                                                            <input type="text" name="Edit_Kode_Produk" value="<?php echo $p['kode_produk']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Nama Produk :</label>
+                                                            <input type="text" name="Edit_Nama_Produk" value="<?php echo $p['nama_produk']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Jumlah Barang :</label>
+                                                            <input type="text" name="Edit_Stock_Produk" value="<?php echo $p['stock']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Harga Modal :</label>
+                                                            <input type="number" placeholder="0" name="Edit_Harga_Modal" value="<?php echo $p['harga_modal']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Harga Jual :</label>
+                                                            <input type="number" placeholder="0" name="Edit_Harga_Jual" value="<?php echo $p['harga_jual']; ?>" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary" name="SimpanEdit">Simpan</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php
                                 }; 
                                 ?>
