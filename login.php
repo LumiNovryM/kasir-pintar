@@ -57,7 +57,7 @@ include 'connect.php';
             <p class="error" style="color: #A80000;font-size: 18px;margin-left: 115px;margin-top: 50px;">Wrong Email & Password</p>
     <?php  endif;?>
         <div class="form">
-            <form action="" method="POST">
+            <form action="dashboard.php" method="POST">
                     <div class="email">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" required>
