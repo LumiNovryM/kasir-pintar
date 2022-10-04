@@ -52,7 +52,7 @@ $count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh ko
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="dashboard.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
