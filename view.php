@@ -81,7 +81,6 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Data Transaksi: <?=$idpelanggan;?></h1>
-                        <h4 class="mt-4">Nama Pelanggan: <?=$namapel;?></h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Selamat Datang</li>
                         </ol>
@@ -100,6 +99,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nama Barang</th>
                                             <th>Harga Satuan</th>
                                             <th>Jumlah</th>
                                             <th>Sub-Total</th>
@@ -119,14 +119,42 @@
                                     ?>
                                         <tr>
                                             <td><?=$i++;?></td>
+                                            <td><?=$namaproduk;?></td>
                                             <td>Rp.<?=number_format($harga);?></td>
-                                            <td><?=$namaproduk;?> - <?=$alamat;?></td>
                                             <td><?=number_format($qty);?></td>
                                             <td>Rp.<?=number_format($subtotal);?></td>
-                                            <td>Edit Delete</td>
+                                            <td>
+                                            <button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditProduk<?php echo $p['id_produk']; ?>">
+                                                <i class="fas fa-pencil-alt fa-xs mr-1"></i>Edit
+                                            </button>
+                                            <a class="btn btn-danger btn-xs" href="?hapus=<?php echo $p['id_produk']; ?>">
+                                            <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
+                                            </td>
 
                                         </tr>
 
+                                        <div class="modal fade" id="EditView<?php echo $p['id_produk']; ?>" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content border-0">
+                                                <form method="post">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label class="samll">Nama Barang :</label>
+                                                            <input type="hidden" name="id_produk" value="<?php echo $p['id_produk']; ?>">
+                                                            <input type="text" name="Edit_Nama_View" value="<?php echo $p['id_produk']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Jumlah :</label>
+                                                            <input type="text" name="Edit_Stock_View" value="<?php echo $p['stock']; ?>" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary" name="SimpanEdit">Simpan</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php
                                     };
                                     ?>
