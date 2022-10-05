@@ -115,6 +115,20 @@ if(!empty($_GET['hapus'])){
     }
 }
 
+// if(isset($_POST['tambahpesanan'])){
+//     $idpelanggan = $_POST  ['idpelanggan'];
+
+//     $insert = mysqli_query($connect,"INSERT INTO pelanggan2 (idpelanggan) VALUES ('$idpelanggan')");
+
+//     if($insert){
+//         header('location:order.php');
+//     }else{
+//         echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+//         history.go(-1);</script>';
+//     }
+
+// }
+
 if(isset($_POST['tambahpelanggan'])){
     $namapelanggan = $_POST  ['namapelanggan'];
     $notelp = $_POST  ['notelp'];
@@ -138,10 +152,9 @@ if(isset($_POST['addproduk'])){
     
     if($insert){
         header('location:view.php?idpesanan='.$idpesanan);
-    }else{
-    echo '<script>alert("Gagal Menambahkan pesanan Baru");
-    windown.location.href=view.php"";
-    </script>';
+      }else{
+        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+        history.go(-1);</script>';
     }
 }
 ?>

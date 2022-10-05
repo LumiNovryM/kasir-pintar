@@ -108,19 +108,24 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $get = mysqli_query($connect,"select * from pesanan p, pelanggan2 pl where p.idpelanggan=pl.idpelanggan");
+                                    $get = mysqli_query($connect,"select * from pesanan p, pelanggan2 pl");
 
                                     while($p=mysqli_fetch_array($get)){
                                     $idorder = $p['idorder'];
                                     $tanggal = $p['tanggal'];
                                     $namapelanggan = $p['namapelanggan'];
                                     $alamat = $p['alamat'];
+
+                                    // Hitung Jumlah
+                                    $hitungjumlah = mysqli_query($connect, "select * from detailpesanan where idpesanan=$idorder");
+                                    $jumlah = mysqli_num_rows($hitungjumlah);
+
                                     ?>
                                         <tr>
                                             <td><?=$idorder;?></td>
                                             <td><?=$tanggal;?></td>
                                             <td><?=$namapelanggan;?> - <?=$alamat;?></td>
-                                            <td>Jumlah</td>
+                                            <td><?=$jumlah;?></td>
                                             <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a> Delete</td>
                                         </tr>
 

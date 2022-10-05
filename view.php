@@ -3,6 +3,10 @@
 
     if(isset($_GET['idpelanggan'])){
         $idpelanggan = $_GET['idpelanggan'];
+
+        $ambilnamapelanggan = mysqli_query($connect,"select * from pesanan p,  pelanggan2 pl where p.idpelanggan and p.idorder=$idpelanggan");
+        $np = mysqli_fetch_array ($ambilnamapelanggan);
+        $namapel = $np['namapelanggan'];
     }else{
         header('location: order.php');
     }
@@ -77,6 +81,7 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Data Transaksi: <?=$idpelanggan;?></h1>
+                        <h4 class="mt-4">Nama Pelanggan: <?=$namapel;?></h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Selamat Datang</li>
                         </ol>
@@ -103,22 +108,22 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $get = mysqli_query($connect,"select * from pesanan p, produk pr where p.idproduk=pr.idproduk");
+                                    $get = mysqli_query($connect,"select * from detailpesanan p, produk pr where p.idproduk=pr.id_produk");
                                     $i = 1;
 
                                     while($p=mysqli_fetch_array($get)){
                                     $qty = $p['$qty'];
-                                    $harga = $p['harga'];
-                                    $namaproduk = $p['namaproduk'];
+                                    $harga = $p['harga_jual'];
+                                    $namaproduk = $p['nama_produk'];
                                     $subtotal = $qty*$harga;
                                     ?>
                                         <tr>
                                             <td><?=$i++;?></td>
-                                            <td><?=$harga;?></td>
+                                            <td>Rp.<?=number_format($harga);?></td>
                                             <td><?=$namaproduk;?> - <?=$alamat;?></td>
-                                            <td><?=$qty;?></td>
-                                            <td><?=$subtotal;?></td>
-                                            <td>Tampilkan Delete</td>
+                                            <td><?=number_format($qty);?></td>
+                                            <td>Rp.<?=number_format($subtotal);?></td>
+                                            <td>Edit Delete</td>
                                         </tr>
 
                                     <?php
@@ -157,7 +162,7 @@
             Pilih Barang
                 <select name="idpelanggan" class="form-control">
                     <?php
-                    $getproduk = mysqli_query($connect,"select * from produk");
+                    $getproduk = mysqli_query($connect,"select * from produk where idproduk not in (select idproduk from detailpesanan where idpesanan='$idproduk')");
                     
                     while($pl=mysqli_fetch_array($getproduk)){
                         $nama_produk = $pl['nama_produk'];
