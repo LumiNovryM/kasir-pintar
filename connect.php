@@ -126,6 +126,16 @@ if(!empty($_GET['hapus-pelanggan'])){
     }
 }
 
+if(!empty($_GET['hapus-transaksi'])){
+    $idorder = $_GET['hapus-transaksi'];
+    $hapus_data = mysqli_query($connect, "DELETE FROM pesanan WHERE idorder='$idorder'");
+    if($hapus_data){
+        header('Location: order.php');
+    }else{
+        echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
+    }
+}
+
 // if(isset($_POST['tambahpesanan'])){
 //     $idpelanggan = $_POST  ['idpelanggan'];
 

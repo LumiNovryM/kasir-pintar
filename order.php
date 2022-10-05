@@ -117,7 +117,10 @@
                                             <td><?=$tanggal;?></td>
                                             <td><?=$namapelanggan;?> - <?=$alamat;?></td>
                                             <td><?=$jumlah;?></td>
-                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a>Delete</td>                                           
+                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a> 
+                                            <a class="btn btn-danger btn-xs" href="?hapus-transaksi=<?php echo $p['idorder']; ?>">
+                                            <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
+                                            </td>
                                         </tr>
 
                                     <?php
