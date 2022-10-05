@@ -162,11 +162,11 @@
             Pilih Barang
                 <select name="idpelanggan" class="form-control">
                     <?php
-                    $getproduk = mysqli_query($connect,"select * from produk where idproduk not in (select idproduk from detailpesanan where idpesanan='$idproduk')");
+                    $getproduk = mysqli_query($connect,"select * from produk");
                     
                     while($pl=mysqli_fetch_array($getproduk)){
                         $nama_produk = $pl['nama_produk'];
-                        $stock = $pl['$stock'];
+                        $stock = $pl['stock'];
                         $harga_jual = $pl['harga_jual'];                
                         $id_produk = $pl['id_produk'];                   
                     ?>
