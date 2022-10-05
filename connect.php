@@ -115,6 +115,16 @@ if(!empty($_GET['hapus'])){
     }
 }
 
+if(!empty($_GET['hapus-pelanggan'])){
+    $idpelanggan = $_GET['hapus-pelanggan'];
+    $hapus_data = mysqli_query($connect, "DELETE FROM pelanggan2 WHERE idpelanggan='$idpelanggan'");
+    if($hapus_data){
+        header('Location: pelanggan.php');
+    }else{
+        echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
+    }
+}
+
 // if(isset($_POST['tambahpesanan'])){
 //     $idpelanggan = $_POST  ['idpelanggan'];
 

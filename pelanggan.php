@@ -133,7 +133,7 @@ $count_data_pelanggan = mysqli_num_rows($get_data_pelanggan); // Menghitung selu
                                             <button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditPelanggan<?php echo $p['idpelanggan']; ?>">
                                                 <i class="fas fa-pencil-alt fa-xs mr-1"></i>Edit
                                             </button>
-                                            <a class="btn btn-danger btn-xs" href="?hapus=<?php echo $p['idpelanggan']; ?>">
+                                            <a class="btn btn-danger btn-xs" href="?hapus-pelanggan=<?php echo $p['idpelanggan']; ?>">
                                             <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
                                         </td>
                                     </tr>
