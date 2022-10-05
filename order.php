@@ -99,7 +99,7 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>ID Pelanggan</th>
+                                            <th>ID Pesanan</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pelanggan</th>
                                             <th>Jumlah</th>
@@ -108,6 +108,7 @@
                                     </thead>
                                     <tbody>
                                     <?php
+
                                     $get = mysqli_query($connect,"select * from pesanan p, pelanggan2 pl");
 
                                     while($p=mysqli_fetch_array($get)){
@@ -170,7 +171,7 @@
                     while($pl=mysqli_fetch_array($getpelanggan)){
                         $namapelanggan = $pl['namapelanggan'];
                         $idpelanggan = $pl['idpelanggan'];
-                        $alamat = $pl['alamat']                    
+                        $alamat = $pl['alamat'];                    
                     ?>
 
                     <option value="<?=$idpelanggan;?>"><?=$namapelanggan;?> - <?=$alamat;?></option>

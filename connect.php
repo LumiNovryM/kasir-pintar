@@ -145,6 +145,22 @@ if(isset($_POST['tambahpelanggan'])){
 
 }
 
+if(isset($_POST['tambahpesanan'])){
+    $idpelanggan = $_POST ['idepelanggan'];
+
+    $insert = mysqli_query($connect,"INSERT INTO pesanan (idpelanggan) VALUES ('$idpelanggan')");
+
+    if($insert){
+        header('location:view.php');
+    }else{
+        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+        history.go(-1);</script>';
+    }
+
+}
+
+
+
 if(isset($_POST['addproduk'])){
     $idproduk = $_POST ['idproduk'];
     
@@ -153,6 +169,7 @@ if(isset($_POST['addproduk'])){
     if($insert){
         header('location:view.php?idpesanan='.$idpesanan);
       }else{
+
         echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
         history.go(-1);</script>';
     }
