@@ -88,6 +88,21 @@ if(isset($_POST['SimpanEdit'])){
     }
 };
 
+if(isset($_POST['SimpanEditPelanggan'])){
+    $idpelanggan1 = $_POST['idpelanggan'];
+    $namapelanggan1 = $_POST['Edit_Nama_Pelanggan'];
+    $telepon1 = $_POST['Edit_Telepon_Pelanggan'];
+    $alamat1 = $_POST['Edit_Alamat_Pelanggan'];
+
+    $sql = mysqli_query($connect,"UPDATE pelanggan2 SET namapelanggan='$namapelanggan1', notelp='$telepon1', alamat='$alamat1' WHERE idpelanggan=$idpelanggan1");
+    
+    if($sql){
+        header('Location: pelanggan.php');
+    }else{
+        echo '<script>alert("Gagal Edit Data");history.go(-1);</script>';
+    }
+};
+
 
 
 if(!empty($_GET['hapus'])){
@@ -99,6 +114,20 @@ if(!empty($_GET['hapus'])){
         echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
     }
 }
+
+// if(isset($_POST['tambahpesanan'])){
+//     $idpelanggan = $_POST  ['idpelanggan'];
+
+//     $insert = mysqli_query($connect,"INSERT INTO pelanggan2 (idpelanggan) VALUES ('$idpelanggan')");
+
+//     if($insert){
+//         header('location:order.php');
+//     }else{
+//         echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+//         history.go(-1);</script>';
+//     }
+
+// }
 
 if(isset($_POST['tambahpelanggan'])){
     $namapelanggan = $_POST  ['namapelanggan'];
@@ -114,5 +143,38 @@ if(isset($_POST['tambahpelanggan'])){
         history.go(-1);</script>';
     }
 
+}
+
+if(isset($_POST['tambahpesanan'])){
+    $idpelanggan = $_POST ['idepelanggan'];
+
+    $insert = mysqli_query($connect,"INSERT INTO pesanan (idpelanggan) VALUES ('$idpelanggan')");
+
+    if($insert){
+        header('location:order.php');
+    }else{
+        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+        history.go(-1);</script>';
+    }
+
+}
+
+
+
+if(isset($_POST['addproduk'])){
+    $idproduk = $_POST ['idproduk'];
+    $idpesanan = $_POST['idpesanan'];
+    $qty = $_POST ['qty'];
+    
+    $insert = mysqli_query($connect,"INSERT INTO detailpesanan (idpesanan,idproduk,qty) VALUES ('$idpesanan','$idproduk','$qty')");
+    
+    if($insert){
+        header('location:view.php?idpesanan='.$idpesanan);
+      }else{
+
+        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
+        history.go(-1);</script>';
+
+    }
 }
 ?>

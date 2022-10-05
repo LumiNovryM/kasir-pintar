@@ -107,7 +107,7 @@
                                 </thead>
 
                                 <?php
-                                $get = mysqli_query($connect, "SELECT * FROM Pelanggan2");
+                                $get = mysqli_query($connect, "SELECT * FROM pelanggan2");
                                 $i = 1;
 
                                 while($p=mysqli_fetch_array($get)){
@@ -123,8 +123,41 @@
                                         <td><?=$p['namapelanggan'];?></td>
                                         <td><?=$p['notelp'];?></td>
                                         <td><?=$p['alamat'];?></td>
-                                        <td>Edit Data</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditPelanggan<?php echo $p['idpelanggan']; ?>">
+                                                <i class="fas fa-pencil-alt fa-xs mr-1"></i>Edit
+                                            </button>
+                                            <a class="btn btn-danger btn-xs" href="?hapus=<?php echo $p['idpelanggan']; ?>">
+                                            <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
+                                        </td>
                                     </tr>
+
+                                    <div class="modal fade" id="EditPelanggan<?php echo $p['idpelanggan']; ?>" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content border-0">
+                                                <form method="post">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label class="samll">Nama Pelanggan :</label>
+                                                            <input type="hidden" name="id_produk" value="<?php echo $p['idpelanggan']; ?>">
+                                                            <input type="text" name="Edit_Nama_Pelanggan" value="<?php echo $p['namapelanggan']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">No Telepon :</label>
+                                                            <input type="text" name="Edit_Telepon_Pelanggan" value="<?php echo $p['notelp']; ?>" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="samll">Alamat :</label>
+                                                            <input type="text" name="Edit_Alamat_Pelanggan" value="<?php echo $p['alamat']; ?>" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary" name="SimpanEditPelanggan">Simpan</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php
                                 }; 
                                 ?>
