@@ -124,8 +124,8 @@ $count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh ko
                                         <td><?=$i++?></td>
                                         <td><?=$p['kode_produk'];?></td>
                                         <td><?=$p['nama_produk'];?></td>
-                                        <td><?=$p['harga_modal'];?></td>
-                                        <td><?=$p['harga_jual'];?></td>
+                                        <td>Rp.<?=number_format($p['harga_modal']);?></td>
+                                        <td>Rp<?=number_format($p['harga_jual']);?></td>
                                         <td><?=$p['stock'];?></td>
                                         <td><?=$p['tgl_input'];?></td>
                                         <td><button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditProduk<?php echo $p['id_produk']; ?>">

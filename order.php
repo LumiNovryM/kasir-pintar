@@ -117,7 +117,7 @@
                                             <td><?=$tanggal;?></td>
                                             <td><?=$namapelanggan;?> - <?=$alamat;?></td>
                                             <td><?=$jumlah;?></td>
-                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a> Delete</td>                                           
+                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a>Delete</td>                                           
                                         </tr>
 
                                     <?php
