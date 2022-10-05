@@ -103,7 +103,7 @@ if(!empty($_GET['hapus'])){
 if(isset($_POST['tambahpelanggan'])){
     $namapelanggan = $_POST  ['namapelanggan'];
     $notelp = $_POST  ['notelp'];
-    $alamat = $_POST  ['alamata'];
+    $alamat = $_POST  ['alamat'];
 
     $insert = mysqli_query($connect,"INSERT INTO pelanggan2 (namapelanggan, notelp, alamat) VALUES ('$namapelanggan', '$notelp', '$alamat')");
 

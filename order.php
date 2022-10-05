@@ -145,7 +145,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
+                <h4 class="modal-title">Tambah Data</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -161,7 +161,7 @@
                     while($pl=mysqli_fetch_array($getpelanggan)){
                         $namapelanggan = $pl['namapelanggan'];
                         $idpelanggan = $pl['idpelanggan'];
-                        $alamat = $pl['alam$alamat']                    
+                        $alamat = $pl['alamat']                    
                     ?>
 
                     <option value="<?=$idpelanggan;?>"><?=$namapelanggan;?> - <?=$alamat;?></option>
