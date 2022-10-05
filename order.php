@@ -99,7 +99,7 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>ID Pelanggan</th>
+                                            <th>ID Pesanan</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pelanggan</th>
                                             <th>Jumlah</th>
@@ -108,20 +108,16 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $get = mysqli_query($connect,"select * from pesanan p, pelanggan2 pl where p.idpelanggan=pl.idpelanggan");
+                                    $get = mysqli_query($connect,"SELECT * from pesanan p, pelanggan2 pl ");
 
                                     while($p=mysqli_fetch_array($get)){
-                                    $idorder = $p['idorder'];
-                                    $tanggal = $p['tanggal'];
-                                    $namapelanggan = $p['namapelanggan'];
-                                    $alamat = $p['alamat'];
                                     ?>
                                         <tr>
-                                            <td><?=$idorder;?></td>
-                                            <td><?=$tanggal;?></td>
-                                            <td><?=$namapelanggan;?> - <?=$alamat;?></td>
+                                            <td><?=$p['idorder'];?></td>
+                                            <td><?=$p['tanggal'];?></td>
+                                            <td><?=$p['namapelanggan'];?> - <?=$p['alamat'];?></td>
                                             <td>Jumlah</td>
-                                            <td><a href="view.php?idpelanggan=<?=$idorder?>" class="btn btn-primary" target="blank">Tampilkan</a> Delete</td>
+                                            <td><a href="view.php?idpelanggan=<?=$p['idorder'];?>" class="btn btn-primary" target="blank">Tampilkan</a> Delete</td>
                                         </tr>
 
                                     <?php
@@ -165,7 +161,7 @@
                     while($pl=mysqli_fetch_array($getpelanggan)){
                         $namapelanggan = $pl['namapelanggan'];
                         $idpelanggan = $pl['idpelanggan'];
-                        $alamat = $pl['alamat']                    
+                        $alamat = $pl['alamat'];                    
                     ?>
 
                     <option value="<?=$idpelanggan;?>"><?=$namapelanggan;?> - <?=$alamat;?></option>

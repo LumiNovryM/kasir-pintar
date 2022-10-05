@@ -103,13 +103,13 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $get = mysqli_query($connect,"select * from pesanan p, produk pr where p.idproduk=pr.idproduk");
+                                    $get = mysqli_query($connect,"select * from detailpesanan p, produk pr where p.idproduk=pr.id_produk");
                                     $i = 1;
 
                                     while($p=mysqli_fetch_array($get)){
                                     $qty = $p['$qty'];
-                                    $harga = $p['harga'];
-                                    $namaproduk = $p['namaproduk'];
+                                    $harga = $p['harga_jual'];
+                                    $namaproduk = $p['nama_produk'];
                                     $subtotal = $qty*$harga;
                                     ?>
                                         <tr>
