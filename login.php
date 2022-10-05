@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include 'connect.php';
 
     if(isset($_POST["login"])) {
@@ -17,8 +19,11 @@ include 'connect.php';
             // Cek Password
             $row = mysqli_fetch_assoc($result);
             if( password_verify($password, $row["password"]) ) {
+                // set session
+                $_SESSION['login'] = true;
                 
                 header("Location: dashboard.php");
+                exit;
             }
 
         }
@@ -58,7 +63,7 @@ include 'connect.php';
             <p class="error" style="color: #A80000;font-size: 18px;margin-left: 115px;margin-top: 50px;">Wrong Email & Password</p>
     <?php  endif;?>
         <div class="form">
-            <form action="dashboard.php" method="POST">
+            <form method="POST">
                     <div class="email">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" required>

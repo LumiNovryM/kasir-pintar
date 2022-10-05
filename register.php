@@ -48,7 +48,7 @@ if(isset($_POST["register"])) {
 
     <!-- FORM -->
         <div class="form">
-            <form action="" method="post">
+            <form method="post">
                     <div class="name">
                         <div class="input">
                             <label for="firstname">First Name</label>
