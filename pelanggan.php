@@ -145,7 +145,7 @@ $count_data_pelanggan = mysqli_num_rows($get_data_pelanggan); // Menghitung selu
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label class="samll">Nama Pelanggan :</label>
-                                                            <input type="hidden" name="id_produk" value="<?php echo $p['idpelanggan']; ?>">
+                                                            <input type="hidden" name="idpelanggan" value="<?php echo $p['idpelanggan']; ?>">
                                                             <input type="text" name="Edit_Nama_Pelanggan" value="<?php echo $p['namapelanggan']; ?>" class="form-control" required>
                                                         </div>
                                                         <div class="form-group">
