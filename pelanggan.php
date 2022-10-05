@@ -1,4 +1,10 @@
-<?php include 'connect.php'; ?>
+<?php include 'connect.php'; 
+
+// Get data dari pelanggan
+$get_data_pelanggan = mysqli_query($connect,"SELECT * FROM pelanggan2");
+$count_data_pelanggan = mysqli_num_rows($get_data_pelanggan); // Menghitung seluruh kolom
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +89,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">Jumlah Pelanggan</div>
+                                <div class="card-body">Jumlah Pelanggan <?= $count_data_pelanggan ?></div>
                             </div>
                         </div>
                     </div>

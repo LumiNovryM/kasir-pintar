@@ -1,4 +1,8 @@
-<?php include 'connect.php'; ?>
+<?php include 'connect.php';
+// Get data dari Produk
+$get_data_produk = mysqli_query($connect,"SELECT * FROM produk");
+$count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh kolom
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +87,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">Jumlah Produk</div>
+                                <div class="card-body">Jumlah Produk  <?= $count_data_produk ?></div>
                             </div>
                         </div>
                     </div>

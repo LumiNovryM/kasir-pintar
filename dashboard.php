@@ -2,10 +2,18 @@
 
 include 'connect.php';
 
-// Get data dari produk
+// Get data dari Produk
 $get_data_produk = mysqli_query($connect,"SELECT * FROM produk");
 $count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh kolom
 
+// Get data dari pelanggan
+$get_data_pelanggan = mysqli_query($connect,"SELECT * FROM pelanggan2");
+$count_data_pelanggan = mysqli_num_rows($get_data_pelanggan); // Menghitung seluruh kolom
+
+
+// Get data dari Member
+$get_data_member = mysqli_query($connect,"SELECT * FROM akun");
+$count_data_member = mysqli_num_rows($get_data_member); // Menghitung seluruh kolom
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +88,16 @@ $count_data_produk = mysqli_num_rows($get_data_produk); // Menghitung seluruh ko
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body" style="text-align: center;">Total Data Produk <br><p style="font-weight: bold;font-size: 32px;text-align: center;"><?= $count_data_produk ?></p></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body" style="text-align: center;">Total Data Pelanggan <br><p style="font-weight: bold;font-size: 32px;text-align: center;"><?= $count_data_pelanggan ?></p></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body" style="text-align: center;">Total Data Member <br><p style="font-weight: bold;font-size: 32px;text-align: center;"><?= $count_data_member ?></p></div>
                                 </div>
                             </div>
                         </div>
