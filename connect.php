@@ -137,7 +137,7 @@ if(isset($_POST['tambahpesanan'])){
     $insert = mysqli_query($connect,"INSERT INTO pesanan (idpelanggan) VALUES ('$idpelanggan')");
 
     if($insert){
-        header('location:view.php');
+        header('location:order.php');
     }else{
         echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
         history.go(-1);</script>';
@@ -149,14 +149,19 @@ if(isset($_POST['tambahpesanan'])){
 
 if(isset($_POST['addproduk'])){
     $idproduk = $_POST ['idproduk'];
+    $idpesanan = $_POST['idpesanan'];
+    $qty = $_POST ['qty'];
     
     $insert = mysqli_query($connect,"INSERT INTO detailpesanan (idpesanan,idproduk,qty) VALUES ('$idpesanan','$idproduk','$qty')");
     
     if($insert){
-        header('location:view.php');
+        header('location:view.php?idpelanggan='.$idpesanan);
     }else{
-        echo '<script>alert("Gagal Menambahkan Pelanggan Baru");
-        history.go(-1);</script>';
+        echo '
+        <script>alert("Gagal menambahkan pesanan");
+        window.location.href="view.php?idepelanggan="'.$idpelanggan.'
+        </script>
+        ';
     }
 }
 ?>

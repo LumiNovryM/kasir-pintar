@@ -107,7 +107,7 @@
                                     $i = 1;
 
                                     while($p=mysqli_fetch_array($get)){
-                                    $qty = $p['$qty'];
+                                    $qty = $p['qty'];
                                     $harga = $p['harga_jual'];
                                     $namaproduk = $p['nama_produk'];
                                     $subtotal = $qty*$harga;
@@ -115,7 +115,7 @@
                                         <tr>
                                             <td><?=$i++;?></td>
                                             <td><?=$harga;?></td>
-                                            <td><?=$namaproduk;?> - <?=$alamat;?></td>
+                                            <td><?=$namaproduk;?></td>
                                             <td><?=$qty;?></td>
                                             <td><?=$subtotal;?></td>
                                             <td>Tampilkan Delete</td>
@@ -155,13 +155,13 @@
             <!-- Modal body -->
             <div class="modal-body">
             Pilih Barang
-                <select name="idpelanggan" class="form-control">
+                <select name="idproduk" class="form-control">
                     <?php
                     $getproduk = mysqli_query($connect,"select * from produk");
                     
                     while($pl=mysqli_fetch_array($getproduk)){
                         $nama_produk = $pl['nama_produk'];
-                        $stock = $pl['$stock'];
+                        $stock = $pl['stock'];
                         $harga_jual = $pl['harga_jual'];                
                         $id_produk = $pl['id_produk'];                   
                     ?>
