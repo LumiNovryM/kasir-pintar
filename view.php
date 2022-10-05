@@ -112,7 +112,7 @@
                                     $i = 1;
 
                                     while($p=mysqli_fetch_array($get)){
-                                    $qty = $p['$qty'];
+                                    $qty = $p['qty'];
                                     $harga = $p['harga_jual'];
                                     $namaproduk = $p['nama_produk'];
                                     $subtotal = $qty*$harga;
@@ -124,6 +124,7 @@
                                             <td><?=number_format($qty);?></td>
                                             <td>Rp.<?=number_format($subtotal);?></td>
                                             <td>Edit Delete</td>
+
                                         </tr>
 
                                     <?php
@@ -160,7 +161,7 @@
             <!-- Modal body -->
             <div class="modal-body">
             Pilih Barang
-                <select name="idpelanggan" class="form-control">
+                <select name="idproduk" class="form-control">
                     <?php
                     $getproduk = mysqli_query($connect,"select * from produk");
                     
