@@ -19,10 +19,8 @@ include 'connect.php';
             // Cek Password
             $row = mysqli_fetch_assoc($result);
             if( password_verify($password, $row["password"]) ) {
-                // set session
-                $_SESSION['login'] = true;
                 
-                header("Location: dashboard.php");
+                header("Location: debug.php");
                 exit;
             }
 
@@ -30,7 +28,10 @@ include 'connect.php';
 
         $error = true;
 
+    
     }
+
+
 
 ?>
 <!DOCTYPE html>
