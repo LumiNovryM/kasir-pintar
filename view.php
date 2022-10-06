@@ -127,7 +127,7 @@
                                             <button type="button" class="btn btn-primary btn-xs mr-1" data-bs-toggle="modal" data-bs-target="#EditProduk<?php echo $p['id_produk']; ?>">
                                                 <i class="fas fa-pencil-alt fa-xs mr-1"></i>Edit
                                             </button>
-                                            <a class="btn btn-danger btn-xs" href="?hapus-pelanggan=<?php echo $p['id_produk']; ?>">
+                                            <a class="btn btn-danger btn-xs" href="?hapus-barang=<?php echo $p['id_produk']; ?>">
                                             <i class="fas fa-trash-alt fa-xs mr-1"></i>Hapus</a>
                                             </td>
 

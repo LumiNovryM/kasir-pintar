@@ -135,6 +135,16 @@ if(!empty($_GET['hapus-transaksi'])){
     }
 }
 
+if(!empty($_GET['hapus-barang'])){
+    $idpesanan = $_GET['idpesanan'];
+    $hapus_data = mysqli_query($connect, "DELETE FROM detailpesanan WHERE idpesanan='$idpesanan'");
+    if($hapus_data){
+        header('Location: view.php');
+    }else{
+        echo '<script>alert("Gagal Hapus Data");history.go(-1);</script>';
+    }
+}
+
 // if(isset($_POST['tambahpesanan'])){
 //     $idpelanggan = $_POST  ['idpelanggan'];
 
